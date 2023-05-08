@@ -2,8 +2,18 @@ package conversor;
 
 import javax.swing.JOptionPane;
 
-public class SelectExchange{
+public class SelectExchange extends DefaultMenu {
 
-	private static final long serialVersionUID = 5442203514120097523L;	
-		
+	private String selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
+			JOptionPane.PLAIN_MESSAGE, null, DefaultMenu.getStringsCurrency(), null);
+
+	@Override
+	String EventListener() {
+		return "";
+	}
+
+	@Override
+	String getSelectedConverter() {
+		return this.selectedConverter;
+	}
 }

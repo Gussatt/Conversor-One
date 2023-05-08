@@ -1,10 +1,10 @@
 package conversor;
 
 public class TestaConversor {
-	public static void main(String[] args) {
-		DefaultFrame menuInicial = new DefaultFrame(200,200, false);
-		menuInicial.showMenu();
+	public static void main(String[] args) {		
+	
+		MainMenu menuInicial = new MainMenu();
 		
-		System.out.println(menuInicial.whichConverter());
+		menuInicial.EventListener();
 	}
 }

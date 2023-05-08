@@ -4,25 +4,25 @@ import javax.swing.JOptionPane;
 
 public class MainMenu extends DefaultMenu {
 
-	private Object[] converterStrings = { "Conversor de moedas", "Conversor de temperatura" };
-	private String selectedConverter = (String) JOptionPane.showInputDialog(super.getFrameInicial(), "Selecione o conversor",
-			"Menu", JOptionPane.PLAIN_MESSAGE, null, converterStrings, converterStrings[0]);
-	
-	@Override
-	void ShowMenu() {
-		System.out.println(selectedConverter);	
-	}
+	private String selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
+			JOptionPane.PLAIN_MESSAGE, null, DefaultMenu.getStringsConverter(), null);
 
 	@Override
 	String EventListener() {
-		if(selectedConverter == null || selectedConverter.length() < 1) {
+		if (this.getSelectedConverter() == null || this.getSelectedConverter().length() < 1) {
 			throw new NullPointerException("Perdão, porém esta opção é inválida");
 		}
-		
-		if(selectedConverter == "Conversor de moedas") {
+
+		if (this.getSelectedConverter() == "Conversor de moedas") {
+			SelectExchange menuMoedas = new SelectExchange();
 			return "Conversor de moedas selecionado";
 		} else {
 			return "Conversor de temperatura selecionado";
-		}	
+		}
+	}
+
+	@Override
+	String getSelectedConverter() {
+		return this.selectedConverter;
 	}
 }
