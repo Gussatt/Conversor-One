@@ -1,19 +1,21 @@
 package conversor;
 
-import javax.swing.JOptionPane;
-
 public class SelectExchange extends DefaultMenu {
 
-	private String selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
-			JOptionPane.PLAIN_MESSAGE, null, DefaultMenu.getStringsCurrency(), null);
+	private static Object[] stringsCurrency = { "De Reais para Dólares", "De Reais para Euros", "De Reais para Libras",
+			"De Reais para Yenes", "De Reais para Won Coreano", "De Dólares para Reais", "De Euros para Reais",
+			"De Libras para Reias", "De Yenes para Reais", "De Won Coreano para Reais", };
+	
+	public SelectExchange(Object[] getter) {
+		super(getter);
+	}
 
-	@Override
-	String EventListener() {
-		return "";
+	public static Object[] getStringsCurrency() {
+		return stringsCurrency;
 	}
 
 	@Override
-	String getSelectedConverter() {
-		return this.selectedConverter;
+	int EventListener() {
+		return 0;
 	}
 }

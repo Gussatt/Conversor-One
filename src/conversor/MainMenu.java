@@ -1,28 +1,27 @@
 package conversor;
 
-import javax.swing.JOptionPane;
-
 public class MainMenu extends DefaultMenu {
-
-	private String selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
-			JOptionPane.PLAIN_MESSAGE, null, DefaultMenu.getStringsConverter(), null);
-
+	
+	private static Object[] stringsConverter = { "Conversor de moedas", "Conversor de temperatura" };
+	
+	public MainMenu(Object[] getter) {
+		super(getter);
+	}
+	
+	public static Object[] getStringsConverter() {
+		return stringsConverter;
+	}
+	
 	@Override
-	String EventListener() {
+	int EventListener() {
 		if (this.getSelectedConverter() == null || this.getSelectedConverter().length() < 1) {
 			throw new NullPointerException("Perdão, porém esta opção é inválida");
 		}
 
 		if (this.getSelectedConverter() == "Conversor de moedas") {
-			SelectExchange menuMoedas = new SelectExchange();
-			return "Conversor de moedas selecionado";
+			return 1;
 		} else {
-			return "Conversor de temperatura selecionado";
+			return 2;
 		}
-	}
-
-	@Override
-	String getSelectedConverter() {
-		return this.selectedConverter;
 	}
 }

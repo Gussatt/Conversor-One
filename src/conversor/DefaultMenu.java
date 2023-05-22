@@ -1,21 +1,21 @@
 package conversor;
 
-public abstract class DefaultMenu{
-	
-	private static Object[] stringsConverter = { "Conversor de moedas", "Conversor de temperatura" };
-	private static Object[] stringsCurrency = {"De Reais para Dólares", "De Reais para Euros", "De Reais para Libras",
-												"De Reais para Yenes", "De Reais para Won Coreano", 
-												"De Dólares para Reais", "De Euros para Reais", "De Libras para Reias",
-												"De Yenes para Reais", "De Won Coreano para Reais",};
-	public static Object[] getStringsConverter() {
-		return stringsConverter;
-	}
+import javax.swing.JOptionPane;
 
-	public static Object[] getStringsCurrency() {
-		return stringsCurrency;
+public abstract class DefaultMenu {
+
+	private String selectedConverter;
+
+	public DefaultMenu(Object[] getter) {
+		this.selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
+				JOptionPane.PLAIN_MESSAGE, null, getter, null);
 	}
 	
-	abstract String EventListener();
+	public String getSelectedConverter() {
+		return selectedConverter;
+	}
 	
-	abstract String getSelectedConverter();
+	abstract int EventListener();
+	
+	
 }
