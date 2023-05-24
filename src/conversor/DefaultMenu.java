@@ -5,10 +5,11 @@ import javax.swing.JOptionPane;
 public abstract class DefaultMenu {
 
 	private String selectedConverter;
-
-	public DefaultMenu(Object[] getter) {
-		this.selectedConverter = (String) JOptionPane.showInputDialog(null, "Selecione o conversor", "Menu",
-				JOptionPane.PLAIN_MESSAGE, null, getter, null);
+//	private ImageIcon questionIcon = new ImageIcon("icon/question.png", "Question mark");
+	
+	public DefaultMenu(Object[] getter, String message, String title) {
+		this.selectedConverter = (String) JOptionPane.showInputDialog(null, message, title,
+				JOptionPane.QUESTION_MESSAGE, null, getter, null);
 	}
 	
 	public String getSelectedConverter() {
@@ -16,6 +17,5 @@ public abstract class DefaultMenu {
 	}
 	
 	abstract int EventListener();
-	
 	
 }

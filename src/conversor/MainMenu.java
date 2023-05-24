@@ -2,11 +2,12 @@ package conversor;
 
 public class MainMenu extends DefaultMenu {
 	
+	public MainMenu(Object[] getter, String message, String title) {
+		super(getter, message, title);
+	}
+
 	private static Object[] stringsConverter = { "Conversor de moedas", "Conversor de temperatura" };
 	
-	public MainMenu(Object[] getter) {
-		super(getter);
-	}
 	
 	public static Object[] getStringsConverter() {
 		return stringsConverter;
